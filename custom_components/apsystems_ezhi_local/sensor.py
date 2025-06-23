@@ -239,7 +239,7 @@ class BatteryPowerSensor(BaseSensor):
         """Handle updated data from the coordinator."""
         if self.coordinator.data is not None:
             try:
-                self._state = float(self.coordinator.data.batP)
+                self._state = float(self.coordinator.data.batP * -1)
             except (ValueError, TypeError):
                 self._state = 0
         self.async_write_ha_state()
